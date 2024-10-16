@@ -8,7 +8,11 @@ public partial class MainPage : ContentPage
 	bool EstaMorto = false;
 	double LarguraJanela=0;
 	double AlturaJanela=0;
-	int Velocidade= 20;
+	int Velocidade= 10;
+	const int ForcaPulo = 30;
+	const int MaximoTempoPulando = 3; //frames
+	bool EstaPulando = false;
+	int TempoPulando = 0;
 
 
 
@@ -69,13 +73,17 @@ public partial class MainPage : ContentPage
 			{
 				canobaixo.TranslationX = 0;
 				canocima.TranslationX =0;
+				var alturaMax = -100;
+				var alturaMin = -canobaixo.HeightRequest;
+				canocima.TranslationY = Random.Shared.Next((int) alturaMin, (int) alturaMax);
+				canobaixo.TranslationY = canocima.TranslationY + aberturaMinima + canobaixo.HeightRequest;
 			}
 		}
 
 		bool VerificaColisaoTeto()
 		{
-			var maxY = -AlturaJanela/2;
-			if (lilghost.TranslationY <=minY)
+			var minY = -AlturaJanela/2;
+			if (lilghost.TranslationY <= minY)
 				return true;
 			else
 				return false;	
@@ -84,7 +92,7 @@ public partial class MainPage : ContentPage
 		bool VerificaColisaoChao()
 		{
 			var maxY = AlturaJanela/2 - floor.HeightRequest;
-			if (lilghost.TranslationY >=maxY)
+			if (lilghost.TranslationY >= maxY)
 				return true;
 			else
 				return false;	
@@ -107,9 +115,9 @@ public partial class MainPage : ContentPage
 
 		void AplicaPulo()
 		{
-			imagelilghost. TranslationY -= ForcaPulo;
+			lilghost. TranslationY -= ForcaPulo;
 			TempoPulando++;
-			if (tempoPulando >= maxTempoPulando)
+			if (TempoPulando >= maxTempoPulando)
 			{
 				EstaPulando = false;
 				TempoPulando = 0;
@@ -120,6 +128,7 @@ public partial class MainPage : ContentPage
 		{
 			EstaPulando = true;
 		}
+
 	
 }
 

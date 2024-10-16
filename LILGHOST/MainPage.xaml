@@ -5,6 +5,9 @@
              Shell.NavBarIsVisible="false">
 
     <Grid>
+            <Grid.GestureRecognizers>
+               <TapGestureRecognizer Tapped="OnGridClicked"/>
+              </Grid.GestureRecognizers>
 
        <Image Source="lilghostbackgroud.jpg"
               Aspect="AspectFill"
@@ -56,12 +59,7 @@
             <Image Source= "startbutton.png"
              HeightRequest="195"
             WidthRequest="160"/>
-
-       <Grid>
-              <Grid.GestureRecognizers>
-               <TapGestureRecognizer Tapped="OnGridClicked"/>
-              </Grid.GestureRecognizers>
-
+            
         </Frame>
 
     </Grid>
