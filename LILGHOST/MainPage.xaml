@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LILGHOST.MainPage"
+             Shell.NavBarIsVisible="false">
+
+    <Grid>
+
+       <Image Source="lilghostbackgroud.jpg"
+              Aspect="AspectFill"
+              HorizontalOptions="Fill"
+              VerticalOptions="Fill"/>
+
+       <Image Source="canocima.png"
+              x:Name="canocima"
+              HeightRequest="300"
+              WidthRequest="100"
+              Aspect="AspectFit"
+              HorizontalOptions="End"
+              VerticalOptions="End"/>
+
+       <Image Source="canobaixo.png"
+              x:Name="canobaixo"
+              HeightRequest="300"
+              WidthRequest="100"
+              Aspect="AspectFit"
+              HorizontalOptions="End"
+              VerticalOptions="Start"/>
+
+       <Image Source="lilghost.png"
+              x:Name="lilghost"
+              HeightRequest="90"
+              WidthRequest="70"
+              Margin="30,0,0,0"
+              HorizontalOptions="Start"
+              VerticalOptions="Center"/>
+
+       <Image Source="floor.png"
+              x:Name="floor"
+              HeightRequest="90"
+              Aspect="AspectFill"
+              HorizontalOptions="Center"
+              VerticalOptions="End"/>
+
+       <Frame
+            IsVisible="true"
+            x:Name="FrameGameOver"
+            BackgroundColor="#99000000"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            CornerRadius="0">
+
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Oi"/>
+            </Frame.GestureRecognizers>
+            <Image Source= "startbutton.png"
+             HeightRequest="195"
+            WidthRequest="160"/>
+
+       <Grid>
+              <Grid.GestureRecognizers>
+               <TapGestureRecognizer Tapped="OnGridClicked"/>
+              </Grid.GestureRecognizers>
+
+        </Frame>
+
+    </Grid>
+
+</ContentPage>
