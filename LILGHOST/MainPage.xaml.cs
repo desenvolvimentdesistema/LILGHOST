@@ -3,7 +3,7 @@
 public partial class MainPage : ContentPage
 {
     
-	const int Gravidade =1 ;
+	const int Gravidade = 5;
 	const int AberturaMinima = 200;
 	const int TempoEntreFrames=25;
 	bool EstaMorto = false;
@@ -46,7 +46,7 @@ public partial class MainPage : ContentPage
 		}
  	}
 
- 	void Oi (object s, TappedEventArgs e)
+ 	void Hello (object s, TappedEventArgs e)
  	{
 		FrameGameOver.IsVisible = false;
 		EstaMorto = false;
@@ -91,6 +91,7 @@ public partial class MainPage : ContentPage
 
 				LabelScore.Text = "Canos:" + Score.ToString("D3");
 
+
 			}
 		}
 
@@ -121,10 +122,8 @@ public partial class MainPage : ContentPage
 					{
 						return true;
 					}
-					{
-						return false;
-					}
 			}
+			return false;
 		}
 
 		void AplicaPulo()

@@ -9,7 +9,7 @@
                <TapGestureRecognizer Tapped="OnGridClicked"/>
               </Grid.GestureRecognizers>
 
-       <Image Source="lilghostbackgroud.jpg"
+       <Image Source="lilghostbackground.png"
               Aspect="AspectFill"
               HorizontalOptions="Fill"
               VerticalOptions="Fill"/>
@@ -17,16 +17,16 @@
        <Image Source="canocima.png"
               x:Name="CanodeCima"
               HeightRequest="650"
-              WidthRequest="100"
-              Aspect="AspectFit"
+              WidthRequest="60"
+              Aspect="AspectFill"
               HorizontalOptions="End"
               VerticalOptions="End"/>
 
        <Image Source="canobaixo.png"
               x:Name="CanodeBaixo"
               HeightRequest="650"
-              WidthRequest="100"
-              Aspect="AspectFit"
+              WidthRequest="60"
+              Aspect="AspectFill"
               HorizontalOptions="End"
               VerticalOptions="Start"/>
 
@@ -45,23 +45,52 @@
               HorizontalOptions="Center"
               VerticalOptions="End"/>
 
-       <Frame
-            IsVisible="true"
-            x:Name="FrameGameOver"
-            BackgroundColor="#99000000"
-            HorizontalOptions="Fill"
-            VerticalOptions="Fill"
-            CornerRadius="0">
+  <Frame IsVisible="true"
+                     x:Name="FrameGameOver"
+                     BackgroundColor="#99000000"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Fill"
+                     CornerRadius="0">
 
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="Hello"/>
-            </Frame.GestureRecognizers>
-            <Image Source= "startbutton.png"
-             HeightRequest="195"
-            WidthRequest="160"/>
-            
-        </Frame>
+                     <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Oi"/>
+                     </Frame.GestureRecognizers>
+                     <Grid>
+                            <Grid.RowDefinitions>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                                   <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="birdjump.png"
+                                   HeightRequest="500"
+                                   WidthRequest="250"
+                                   Grid.Row="0"/>
+                            <Frame Grid.Row="1"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                                   <Grid>
+                                          <Grid.ColumnDefinitions>
+                                                 <ColumnDefinition Width="*"/>
+                                                 <ColumnDefinition Width="*"/>
+                                          </Grid.ColumnDefinitions>
+                                   </Grid>
+                                   <Image Source="moedinha.png"
+                                          Grid.Column="0"/>
+                                   <Label Text="Você passou por 000 Canos!!"
+                                          x:Name="LabelCanos"
+                                          Grid.Column="1"/>
+                            </Frame>
+                            <Image Source="taptojump.png"
+                                   HeightRequest="200"
+                                   WidthRequest="165"
+                                   Grid.Row="2"/>
 
+
+
+                     </Grid>
+
+              </Frame>
     </Grid>
 
 </ContentPage>
