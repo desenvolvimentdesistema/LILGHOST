@@ -4,6 +4,7 @@ public partial class MainPage : ContentPage
 {
     
 	const int Gravidade =1 ;
+	const int AberturaMinima = 200;
 	const int TempoEntreFrames=25;
 	bool EstaMorto = false;
 	double LarguraJanela=0;
@@ -13,6 +14,7 @@ public partial class MainPage : ContentPage
 	const int MaximoTempoPulando = 3; //frames
 	bool EstaPulando = false;
 	int TempoPulando = 0;
+	int Score = 0;
 
 
 
@@ -23,7 +25,7 @@ public partial class MainPage : ContentPage
 
 	void AplicaGravidade()
 	{
-    	lilghost.TranslationY += Gravidade;
+    	LilGhost.TranslationY += Gravidade;
 	}
  	public async void Desenha()
  	{
@@ -54,7 +56,7 @@ public partial class MainPage : ContentPage
 
 	void Inicializar()
 	{
-		lilghost.TranslationY = 0;
+		LilGhost.TranslationY = 0;
 	}
 
 	
@@ -67,23 +69,35 @@ public partial class MainPage : ContentPage
 
 		void GerenciaCanos ()
 		{
-			canocima.TranslationX -= Velocidade;
-			canobaixo.TranslationX -= Velocidade;
-			if ( canobaixo.TranslationX < -LarguraJanela)
+			CanodeCima.TranslationX -= Velocidade;
+
+			CanodeBaixo.TranslationX -= Velocidade;
+
+			if ( CanodeBaixo.TranslationX < -LarguraJanela)
 			{
-				canobaixo.TranslationX = 0;
-				canocima.TranslationX =0;
+				CanodeBaixo.TranslationX = 0;
+
+				CanodeCima.TranslationX =0;
+
 				var alturaMax = -100;
-				var alturaMin = -canobaixo.HeightRequest;
-				canocima.TranslationY = Random.Shared.Next((int) alturaMin, (int) alturaMax);
-				canobaixo.TranslationY = canocima.TranslationY + aberturaMinima + canobaixo.HeightRequest;
+
+				var alturaMin = -CanodeBaixo.HeightRequest;
+
+				CanodeCima.TranslationY = Random.Shared.Next((int) alturaMin, (int) alturaMax);
+
+				CanodeBaixo.TranslationY = CanodeCima.TranslationY + AberturaMinima + CanodeBaixo.HeightRequest;
+
+				Score ++;
+
+				LabelScore.Text = "Canos:" + Score.ToString("D3");
+
 			}
 		}
 
 		bool VerificaColisaoTeto()
 		{
 			var minY = -AlturaJanela/2;
-			if (lilghost.TranslationY <= minY)
+			if (LilGhost.TranslationY <= minY)
 				return true;
 			else
 				return false;	
@@ -91,8 +105,8 @@ public partial class MainPage : ContentPage
 
 		bool VerificaColisaoChao()
 		{
-			var maxY = AlturaJanela/2 - floor.HeightRequest;
-			if (lilghost.TranslationY >= maxY)
+			var maxY = AlturaJanela/2 - Floor.HeightRequest;
+			if (LilGhost.TranslationY >= maxY)
 				return true;
 			else
 				return false;	
@@ -115,9 +129,9 @@ public partial class MainPage : ContentPage
 
 		void AplicaPulo()
 		{
-			lilghost. TranslationY -= ForcaPulo;
+			LilGhost. TranslationY -= ForcaPulo;
 			TempoPulando++;
-			if (TempoPulando >= maxTempoPulando)
+			if (TempoPulando >= MaximoTempoPulando)
 			{
 				EstaPulando = false;
 				TempoPulando = 0;

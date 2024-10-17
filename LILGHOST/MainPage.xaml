@@ -15,23 +15,23 @@
               VerticalOptions="Fill"/>
 
        <Image Source="canocima.png"
-              x:Name="canocima"
-              HeightRequest="300"
+              x:Name="CanodeCima"
+              HeightRequest="650"
               WidthRequest="100"
               Aspect="AspectFit"
               HorizontalOptions="End"
               VerticalOptions="End"/>
 
        <Image Source="canobaixo.png"
-              x:Name="canobaixo"
-              HeightRequest="300"
+              x:Name="CanodeBaixo"
+              HeightRequest="650"
               WidthRequest="100"
               Aspect="AspectFit"
               HorizontalOptions="End"
               VerticalOptions="Start"/>
 
        <Image Source="lilghost.png"
-              x:Name="lilghost"
+              x:Name="LilGhost"
               HeightRequest="90"
               WidthRequest="70"
               Margin="30,0,0,0"
@@ -39,7 +39,7 @@
               VerticalOptions="Center"/>
 
        <Image Source="floor.png"
-              x:Name="floor"
+              x:Name="Floor"
               HeightRequest="90"
               Aspect="AspectFill"
               HorizontalOptions="Center"
@@ -54,7 +54,7 @@
             CornerRadius="0">
 
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="Oi"/>
+                <TapGestureRecognizer Tapped="Hello"/>
             </Frame.GestureRecognizers>
             <Image Source= "startbutton.png"
              HeightRequest="195"
