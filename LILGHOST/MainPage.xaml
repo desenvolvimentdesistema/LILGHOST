@@ -9,7 +9,7 @@
                <TapGestureRecognizer Tapped="OnGridClicked"/>
               </Grid.GestureRecognizers>
 
-       <Image Source="lilghostbackground.png"
+       <Image Source="lilghostbackground.jpg"
               Aspect="AspectFill"
               HorizontalOptions="Fill"
               VerticalOptions="Fill"/>
@@ -53,7 +53,7 @@
                      CornerRadius="0">
 
                      <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Oi"/>
+                            <TapGestureRecognizer Tapped="Hello"/>
                      </Frame.GestureRecognizers>
                      <Grid>
                             <Grid.RowDefinitions>
@@ -77,8 +77,8 @@
                                    </Grid>
                                    <Image Source="moedinha.png"
                                           Grid.Column="0"/>
-                                   <Label Text="Você passou por 000 Canos!!"
-                                          x:Name="LabelCanos"
+                                   <Label Text="Você superou 000 obstáculos!!"
+                                          x:Name="LabelScore"
                                           Grid.Column="1"/>
                             </Frame>
                             <Image Source="taptojump.png"
