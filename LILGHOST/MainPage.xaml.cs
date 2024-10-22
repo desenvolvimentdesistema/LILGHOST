@@ -52,11 +52,18 @@ public partial class MainPage : ContentPage
 		EstaMorto = false;
 		Inicializar();
 		Desenha();
+		LabelCanos.Text = "Você superou " + Score.ToString("D3") + " obstáculos!!";
  	}
 
 	void Inicializar()
 	{
 		LilGhost.TranslationY = 0;
+		CanodeCima.TranslationX = -LarguraJanela;
+		CanodeBaixo.TranslationX = -LarguraJanela;
+		LilGhost.TranslationX = 0;
+		LilGhost.TranslationY = 0;
+		Score = 0;
+		GerenciaCanos();
 	}
 
 	
@@ -118,7 +125,9 @@ public partial class MainPage : ContentPage
 			if(!EstaMorto)
 			{
 				if(VerificaColisaoTeto()  ||
-					VerificaColisaoChao())
+					VerificaColisaoChao() ||
+					VerificaColisaoCanoCima() ||
+					VerificaColisaoCanoBaixo())
 					{
 						return true;
 					}
@@ -140,6 +149,38 @@ public partial class MainPage : ContentPage
 		void OnGridClicked(object sender, TappedEventArgs a)
 		{
 			EstaPulando = true;
+		}
+
+		bool VerificaColisaoCanoCima()
+		{
+			var posHLilGhost = (LarguraJanela/2) - (LilGhost.WidthRequest/2);
+			var posVLilGhost = (AlturaJanela/2) - (LilGhost.HeightRequest/2) + LilGhost.TranslationY;
+			if (posHLilGhost >= Math.Abs(CanodeCima.TranslationX) - CanodeCima.WidthRequest &&
+			posHLilGhost <= Math.Abs(CanodeCima.TranslationX) + CanodeCima.WidthRequest &&
+			posVLilGhost <= CanodeCima.HeightRequest + CanodeCima.TranslationY)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+				bool VerificaColisaoCanoBaixo()
+		{
+			var posHLilGhost = (LarguraJanela/2) - (LilGhost.WidthRequest/2);
+			var posVLilGhost = (AlturaJanela/2) - (LilGhost.HeightRequest/2) + LilGhost.TranslationY;
+			if (posHLilGhost >= Math.Abs(CanodeBaixo.TranslationX) - CanodeBaixo.WidthRequest &&
+			posHLilGhost <= Math.Abs(CanodeBaixo.TranslationX) + CanodeBaixo.WidthRequest &&
+			posVLilGhost <= CanodeBaixo.HeightRequest + CanodeBaixo.TranslationY)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 
 	

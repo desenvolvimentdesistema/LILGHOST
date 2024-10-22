@@ -14,6 +14,13 @@
               HorizontalOptions="Fill"
               VerticalOptions="Fill"/>
 
+       <Label Text="Canos: 000"
+              x:Name="LabelScore"
+              HorizontalOptions="Start"
+              VerticalOptions="Start"/>
+        
+              
+
        <Image Source="canocima.png"
               x:Name="CanodeCima"
               HeightRequest="650"
@@ -34,11 +41,10 @@
               x:Name="LilGhost"
               HeightRequest="90"
               WidthRequest="70"
-              Margin="30,0,0,0"
-              HorizontalOptions="Start"
+              HorizontalOptions="Center"
               VerticalOptions="Center"/>
 
-       <Image Source="floor.png"
+       <Image Source="floor.jpg"
               x:Name="Floor"
               HeightRequest="90"
               Aspect="AspectFill"
@@ -75,17 +81,13 @@
                                                  <ColumnDefinition Width="*"/>
                                           </Grid.ColumnDefinitions>
                                    </Grid>
-                                   <Image Source="moedinha.png"
-                                          Grid.Column="0"/>
-                                   <Label Text="Você superou 000 obstáculos!!"
-                                          x:Name="LabelScore"
-                                          Grid.Column="1"/>
-                            </Frame>
-                            <Image Source="taptojump.png"
-                                   HeightRequest="200"
-                                   WidthRequest="165"
-                                   Grid.Row="2"/>
 
+                            <Label Text="Você superou 000 obstáculos!!"
+                                   x:Name="LabelCanos"
+                                   Grid.Column="1"/>
+
+
+                            </Frame>
 
 
                      </Grid>
