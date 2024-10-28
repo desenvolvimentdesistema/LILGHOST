@@ -126,7 +126,8 @@ public partial class MainPage : ContentPage
 			{
 				if(VerificaColisaoTeto()  ||
 					VerificaColisaoChao() ||
-					VerificaColisaoCanoCima())
+					VerificaColisaoCanoCima()||
+					VerificaColisaoCanoBaixo())
 					{
 						return true;
 					}
@@ -157,6 +158,23 @@ public partial class MainPage : ContentPage
 			if (posHLilGhost >= Math.Abs(CanodeCima.TranslationX) - CanodeCima.WidthRequest &&
 			posHLilGhost <= Math.Abs(CanodeCima.TranslationX) + CanodeCima.WidthRequest &&
 			posVLilGhost <= CanodeCima.HeightRequest + CanodeCima.TranslationY)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		bool VerificaColisaoCanoBaixo()
+		{
+			var posHPassaro = (LarguraJanela / 2) - (LilGhost.WidthRequest / 2);
+			var posVPassaro = (AlturaJanela / 2) - (LilGhost.HeightRequest / 2) + LilGhost.TranslationY;
+			var yMaxCano = CanodeCima.HeightRequest + CanodeCima.TranslationY + AberturaMinima;
+			if (posHPassaro >= Math.Abs(CanodeBaixo.TranslationX) - CanodeBaixo.WidthRequest &&
+		 	posHPassaro <= Math.Abs(CanodeBaixo.TranslationX) + CanodeBaixo.WidthRequest &&
+		 	posVPassaro >= yMaxCano)
 			{
 				return true;
 			}
