@@ -39,6 +39,7 @@ public partial class MainPage : ContentPage
 			if (VerificaColisao())
 			{
 				EstaMorto = true;
+				SoundHelper.Play("deathsound.wav");
 				FrameGameOver.IsVisible = true;
 				break;
 			}
@@ -169,12 +170,12 @@ public partial class MainPage : ContentPage
 
 		bool VerificaColisaoCanoBaixo()
 		{
-			var posHPassaro = (LarguraJanela / 2) - (LilGhost.WidthRequest / 2);
-			var posVPassaro = (AlturaJanela / 2) - (LilGhost.HeightRequest / 2) + LilGhost.TranslationY;
+			var posHLilGhost = (LarguraJanela / 2) - (LilGhost.WidthRequest / 2);
+			var posVLilGhost = (AlturaJanela / 2) - (LilGhost.HeightRequest / 2) + LilGhost.TranslationY;
 			var yMaxCano = CanodeCima.HeightRequest + CanodeCima.TranslationY + AberturaMinima;
-			if (posHPassaro >= Math.Abs(CanodeBaixo.TranslationX) - CanodeBaixo.WidthRequest &&
-		 	posHPassaro <= Math.Abs(CanodeBaixo.TranslationX) + CanodeBaixo.WidthRequest &&
-		 	posVPassaro >= yMaxCano)
+			if (posHLilGhost >= Math.Abs(CanodeBaixo.TranslationX) - CanodeBaixo.WidthRequest &&
+		 	posHLilGhost <= Math.Abs(CanodeBaixo.TranslationX) + CanodeBaixo.WidthRequest &&
+		 	posVLilGhost >= yMaxCano)
 			{
 				return true;
 			}
